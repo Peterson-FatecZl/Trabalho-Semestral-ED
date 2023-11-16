@@ -20,7 +20,7 @@ import javax.swing.text.PlainDocument;
 import controller.ControleClientePF;
 
 //@SuppressWarnings("all")
-public class CadastroCPF extends JFrame {
+public class CadastroCPF extends BaseFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldNome;
@@ -87,8 +87,7 @@ public class CadastroCPF extends JFrame {
 		textFieldNumero.setToolTipText("DIGITE O NUMERO");
 
 		textFieldCelular = createNumericTextField();
-
-		textFieldCelular.setBounds(110, 99, 133, 26);
+		textFieldCelular.setBounds(117, 102, 133, 26);
 		contentPane.add(textFieldCelular);
 		textFieldCelular.setColumns(10);
 		textFieldCelular.setToolTipText("DIGITE O NUMERO DO SEU CELULAR");
@@ -137,7 +136,7 @@ public class CadastroCPF extends JFrame {
 
 		JLabel lblInformacoes = new JLabel("INFORMAÇÕES PESSOAIS");
 		lblInformacoes.setToolTipText("INFORMAÇÕES PESSOAIS");
-		lblInformacoes.setFont(new Font("Tahoma", Font.BOLD + 2, 20));
+		lblInformacoes.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblInformacoes.setBounds(21, 11, 283, 26);
 		contentPane.add(lblInformacoes);
 
@@ -149,7 +148,7 @@ public class CadastroCPF extends JFrame {
 
 		JLabel lblInformacoesEnderecoCpf = new JLabel("INFORMAÇÕES DE ENDEREÇO");
 		lblInformacoesEnderecoCpf.setToolTipText("INFORMAÇÕES DE ENDEREÇO");
-		lblInformacoesEnderecoCpf.setFont(new Font("Tahoma", Font.BOLD + 2, 20));
+		lblInformacoesEnderecoCpf.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblInformacoesEnderecoCpf.setBounds(21, 136, 308, 36);
 		contentPane.add(lblInformacoesEnderecoCpf);
 		
@@ -215,19 +214,19 @@ public class CadastroCPF extends JFrame {
 	}
 
 	public class AlphaNumericTextField extends JTextField {
-		public AlphaNumericTextField() {
-			setDocument(new AlphaNumericDocument());
-		}
+	    public AlphaNumericTextField() {
+	        setDocument(new AlphaNumericDocument());
+	    }
 
-		private class AlphaNumericDocument extends PlainDocument {
-			@Override
-			public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
-				// Verifica se a string contém apenas letras
-				if (str != null && str.matches("[a-zA-Z]+")) {
-					super.insertString(offs, str, a);
-				}
-			}
-		}
-	}
+	    private class AlphaNumericDocument extends PlainDocument {
+	        @Override
+	        public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
+	            // Verifica se a string contém apenas letras ou espaços
+	            if (str != null && str.matches("[a-zA-Z ]+")) {
+	                super.insertString(offs, str, a);
+	            }
+	        }
+	    }
 
+}
 }

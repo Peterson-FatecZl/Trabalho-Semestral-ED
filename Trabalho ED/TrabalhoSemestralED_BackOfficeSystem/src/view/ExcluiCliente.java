@@ -22,7 +22,7 @@ import javax.swing.text.PlainDocument;
 import controller.ControleClientePF;
 import controller.ControleClientePJ;
 
-public class ExcluiCliente extends JFrame {
+public class ExcluiCliente extends BaseFrame{
 
 	private JPanel contentPane;
 	private JPanel contentPane_1;

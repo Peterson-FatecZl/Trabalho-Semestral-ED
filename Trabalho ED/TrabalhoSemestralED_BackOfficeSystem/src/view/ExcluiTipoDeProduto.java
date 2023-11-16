@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -9,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -18,11 +20,12 @@ import javax.swing.text.PlainDocument;
 
 
 
-public class ExcluiTipoDeProduto extends JFrame {
+
+
+public class ExcluiTipoDeProduto extends BaseFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textFieldExclusaoTipoProduto;
 	/**
 	 * Launch the application.
 	 */
@@ -55,50 +58,53 @@ public class ExcluiTipoDeProduto extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("EXCLUSÃO DE TIPO DE PRODUTO");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setBounds(154, 11, 348, 31);
-		contentPane.add(lblNewLabel);
+		JLabel lblExclusaoTipoProduto = new JLabel("EXCLUSÃO DE TIPO DE PRODUTO");
+		lblExclusaoTipoProduto.setToolTipText("EXCLUSÃO DE TIPO DE PRODUTO");
+		lblExclusaoTipoProduto.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblExclusaoTipoProduto.setBounds(154, 11, 348, 31);
+		contentPane.add(lblExclusaoTipoProduto);
 
-		JLabel lblNewLabel_1 = new JLabel("CÓDIGO DO TIPO DO PRODUTO QUE DESEJA EXCLUIR :");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_1.setBounds(10, 106, 530, 20);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblNomeExclusaoTipoProduto = new JLabel("NOME DO TIPO DO PRODUTO PARA EXCLUSÃO ");
+		lblNomeExclusaoTipoProduto.setToolTipText("NOME DO TIPO DO PRODUTO PARA EXCLUSÃO ");
+		lblNomeExclusaoTipoProduto.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNomeExclusaoTipoProduto.setBounds(10, 106, 452, 20);
+		contentPane.add(lblNomeExclusaoTipoProduto);
 
-		textField = createNumericTextField();
-		textField.setBounds(520, 106, 144, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		AlphaNumericTextField textFieldExclusaoTipoProduto =  new AlphaNumericTextField();
+	    textFieldExclusaoTipoProduto.setBounds(459, 106, 205, 20);
+	    textFieldExclusaoTipoProduto.setToolTipText(" DIGITE O NOME DO TIPO DE PRODUTO PARA EXCLUSÃO ");
+		contentPane.add(textFieldExclusaoTipoProduto);
+		textFieldExclusaoTipoProduto.setColumns(10);
 		
 	
 		
-		JButton btnVoltar = new JButton("Voltar");
-        btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        btnVoltar.setBounds(430, 285, 110, 30);
-        contentPane.add(btnVoltar);
+		JButton btnVoltarExclusaoTipoProduto = new JButton("Voltar");
+		btnVoltarExclusaoTipoProduto.setToolTipText("VOLTAR");
+        btnVoltarExclusaoTipoProduto.setFont(new Font("Tahoma", Font.BOLD, 16));
+        btnVoltarExclusaoTipoProduto.setBounds(430, 285, 110, 30);
+        contentPane.add(btnVoltarExclusaoTipoProduto);
         
-        JButton btnExcluir = new JButton("Excluir");
-        btnExcluir.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        btnExcluir.setBounds(550, 285, 110, 30);
-        contentPane.add(btnExcluir);
+        JButton btnExclusaoTipoProduto = new JButton("Excluir");
+        btnExclusaoTipoProduto.setToolTipText("EXCLUIR");
+		btnExclusaoTipoProduto.setForeground(new Color(255, 255, 255));
+		btnExclusaoTipoProduto.setBackground(new Color(245, 7, 7));
+        btnExclusaoTipoProduto.setFont(new Font("Tahoma", Font.BOLD, 16));
+        btnExclusaoTipoProduto.setBounds(550, 285, 110, 30);
+        contentPane.add(btnExclusaoTipoProduto);
         
+        
+        btnExclusaoTipoProduto.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Cria uma instância da tela inicial (classe ED) e a torna visível
+         	 
+            	JOptionPane.showMessageDialog(null, "Exclusão Realizada com Sucesso", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
+                // Fecha o frame atual
+             
+            }
+        });
 	        
-	        JButton btnCadastrar = new JButton("Cadastrar");
-	        btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	        btnCadastrar.setBounds(550, 285, 110, 30);
-	        contentPane.add(btnCadastrar);
-	        
-	        JLabel lblNewLabel_2 = new JLabel("O RESULTADO DA EXCLUSÃO FOI :");
-	        lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 18));
-	        lblNewLabel_2.setBounds(10, 178, 335, 39);
-	        contentPane.add(lblNewLabel_2);
-	        
-	        textField_1 = new JTextField();
-	        textField_1.setBounds(323, 190, 136, 20);
-	        contentPane.add(textField_1);
-	        textField.setColumns(10);
-	
-	   btnVoltar.addActionListener(new ActionListener() {
+	 
+	   btnVoltarExclusaoTipoProduto.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                // Cria uma instância da tela inicial (classe ED) e a torna visível
         	   TelaInicial telaInicial = new TelaInicial();
@@ -110,21 +116,21 @@ public class ExcluiTipoDeProduto extends JFrame {
        });
 
 }
+	public class AlphaNumericTextField extends JTextField {
+	    public AlphaNumericTextField() {
+	        setDocument(new AlphaNumericDocument());
+	    }
 
-    private JTextField createNumericTextField() {
-        JTextField textField = new JTextField();
-       
-        textField.setDocument(new NumericDocument());
-        return textField;
-    }
-    private class NumericDocument extends PlainDocument {
-        @Override
-        public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
-            // Verifica se a string contém apenas dígitos
-            if (str != null && str.matches("\\d+")) {
-                super.insertString(offs, str, a);
-            }
-        }
-	}
+	    private class AlphaNumericDocument extends PlainDocument {
+	        @Override
+	        public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
+	            // Verifica se a string contém apenas letras ou espaços
+	            if (str != null && str.matches("[a-zA-Z ]+")) {
+	                super.insertString(offs, str, a);
+	            }
+	        }
+	    }
+
+}
 
 }

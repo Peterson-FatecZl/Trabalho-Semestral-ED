@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -18,8 +19,9 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 import controller.ControleClientePJ;
+
 @SuppressWarnings("all")
-public class CadastroCNPJ extends JFrame {
+public class CadastroCNPJ extends BaseFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldNomeFantasia;
@@ -239,19 +241,21 @@ public class CadastroCNPJ extends JFrame {
 		}
 	}
 
-	public class AlphaNumericTextField extends JTextField {
-		public AlphaNumericTextField() {
-			setDocument(new AlphaNumericDocument());
-		}
 
-		private class AlphaNumericDocument extends PlainDocument {
-			@Override
-			public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
-				// Verifica se a string contém apenas letras
-				if (str != null && str.matches("[a-zA-Z]+")) {
-					super.insertString(offs, str, a);
-				}
-			}
-		}
-	}
+	public class AlphaNumericTextField extends JTextField {
+	    public AlphaNumericTextField() {
+	        setDocument(new AlphaNumericDocument());
+	    }
+
+	    private class AlphaNumericDocument extends PlainDocument {
+	        @Override
+	        public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
+	            // Verifica se a string contém apenas letras ou espaços
+	            if (str != null && str.matches("[a-zA-Z ]+")) {
+	                super.insertString(offs, str, a);
+	            }
+	        }
+	    }
+
+}
 }

@@ -19,7 +19,7 @@ import javax.swing.text.PlainDocument;
 
 
 
-public class ExcluiProduto extends JFrame {
+public class ExcluiProduto extends BaseFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;

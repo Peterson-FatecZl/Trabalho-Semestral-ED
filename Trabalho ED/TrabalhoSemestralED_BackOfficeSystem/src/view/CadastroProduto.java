@@ -19,7 +19,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class CadastroProduto extends JFrame {
+public class CadastroProduto extends BaseFrame {
 
 	private JPanel contentPane;
 	private JPanel contentPane_1;

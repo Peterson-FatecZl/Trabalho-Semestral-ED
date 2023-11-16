@@ -3,6 +3,7 @@ package view;
 
 
 import java.awt.Color;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -13,21 +14,28 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
+
+
+
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 @SuppressWarnings("all")
-public class CadastraTipoDeProduto extends JFrame {
+public class CadastraTipoDeProduto extends BaseFrame {
 
 
 	private JPanel contentPane_1;
 	private JPanel contentPane_1_1;
+	
 	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textField_2;
+	private JTextField textFieldEspecifiqueTipoProduto;
 
 	/**
 	 * Launch the application.
@@ -63,71 +71,73 @@ public class CadastraTipoDeProduto extends JFrame {
 		setContentPane(contentPane_1_1);
 		contentPane_1_1.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("CADASTRO DE TIPO DE PRODUTO");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setBounds(147, 32, 364, 28);
-		contentPane_1_1.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("CÓDIGO IDENTIFICADOR :");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_1.setBounds(24, 91, 256, 44);
-		contentPane_1_1.add(lblNewLabel_1);
-		
-		
-		
-		DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
-		comboBoxModel.addElement("Bens de Consumo");
-		comboBoxModel.addElement("Produtos para o Consumidor");
-		JComboBox<String> comboBox = new JComboBox<>(comboBoxModel);
-		comboBox.setBounds(354, 181, 208, 20);
-		contentPane_1_1.add(comboBox);
+		JLabel lblCadastroTipoProduto = new JLabel("CADASTRO DE TIPO DE PRODUTO");
+		lblCadastroTipoProduto.setToolTipText("CADASTRO DE TIPO DE PRODUTO");
+		lblCadastroTipoProduto.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblCadastroTipoProduto.setBounds(147, 32, 364, 28);
+		contentPane_1_1.add(lblCadastroTipoProduto);
 		
 		
 		
 		
-		JLabel lblNewLabel_2 = new JLabel("SELECIONE O TIPO DO PRODUTO :");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_2.setBounds(24, 170, 320, 38);
-		contentPane_1_1.add(lblNewLabel_2);
-		
-	    
-		textField =  createNumericTextField();
-		textField.setBounds(278, 102, 129, 22);
-		contentPane_1_1.add(textField);
-		textField.setColumns(10);
-		textField.setToolTipText("DIGITE O TIPO DO PRODUTO");
 		
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(360, 248, 167, 20);
-		contentPane_1_1.add(textField_1);
-		textField_1.setColumns(10);
-		textField.setToolTipText("DIGITE O NUMERO DO CODIGO IDENTIFICADOR ");
+		JLabel lblEspecifiqueTipoProduto = new JLabel("ESPECIFIQUE O TIPO DO PRODUTO :");
+		lblEspecifiqueTipoProduto.setToolTipText("ESPECIFIQUE O TIPO DO PRODUTO ");
+		lblEspecifiqueTipoProduto.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblEspecifiqueTipoProduto.setBounds(24, 115, 351, 38);
+		contentPane_1_1.add(lblEspecifiqueTipoProduto);
 		
-		JLabel lblNewLabel_3 = new JLabel("ESPECIFIQUE O TIPO DO PRODUTO:");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_3.setBounds(24, 245, 351, 23);
-		contentPane_1_1.add(lblNewLabel_3);
+		JLabel lblDescricaoTipoProduto = new JLabel("DESCRIÇÃO DO TIPO DO PRODUTO");
+		lblDescricaoTipoProduto.setToolTipText("DESCREVA O TIPO DO PRODUTO");
+		lblDescricaoTipoProduto.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblDescricaoTipoProduto.setBounds(24, 175, 351, 23);
+		contentPane_1_1.add(lblDescricaoTipoProduto);
 		
 		
 		
-		JButton btnVoltar = new JButton("Voltar");
-	        btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	        btnVoltar.setBounds(430, 285, 110, 30);
-	        contentPane_1_1.add(btnVoltar);
+		JButton btnVoltarCadastroTipoProduto = new JButton("Voltar");
+		btnVoltarCadastroTipoProduto.setToolTipText("VOLTAR A TELA ANTERIOR");
+		
+	        btnVoltarCadastroTipoProduto.setFont(new Font("Tahoma", Font.BOLD, 16));
+	        btnVoltarCadastroTipoProduto.setBounds(430, 285, 100, 30);
+	        contentPane_1_1.add(btnVoltarCadastroTipoProduto);
 	        
-	        JButton btnCadastrar = new JButton("Cadastrar");
-	        btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 16));
-	        btnCadastrar.setBounds(550, 285, 110, 30);
-	        contentPane_1_1.add(btnCadastrar);
+	        JButton btnCadastroCadastrarTipoProduto = new JButton("Cadastrar");
+	        btnCadastroCadastrarTipoProduto.setToolTipText("CADASTRAR O TIPO DE PRODUTO");
+	        btnCadastroCadastrarTipoProduto.setBackground(new Color(51, 204, 102));
+	        btnCadastroCadastrarTipoProduto.setFont(new Font("Tahoma", Font.BOLD, 16));
+	        btnCadastroCadastrarTipoProduto.setBounds(543, 285, 121, 30);
+	        contentPane_1_1.add(btnCadastroCadastrarTipoProduto);
+	        
+	        AlphaNumericTextField textFieldEspecifiqueTipoProduto = new AlphaNumericTextField();
+	        textFieldEspecifiqueTipoProduto.setToolTipText(" DIGITE A ESPECIFICAÇÃO DO TIPO DO PRODUTO ");
+	        textFieldEspecifiqueTipoProduto.setColumns(10);
+	        textFieldEspecifiqueTipoProduto.setBounds(360, 127, 291, 20);
+	        contentPane_1_1.add(textFieldEspecifiqueTipoProduto);
+	        
+	        JScrollPane scrollPane = new JScrollPane();
+	        scrollPane.setToolTipText("DESCREVA O TIPO DO PRODUTO");
+	        scrollPane.setBounds(24, 200, 627, 56);
+	        contentPane_1_1.add(scrollPane);
+	        
+	        JTextArea textAreaDescricaoTipoProduto = new JTextArea();
+	        scrollPane.setViewportView(textAreaDescricaoTipoProduto);
+	        textAreaDescricaoTipoProduto.setToolTipText(" DIGITE A DESCRIÇÃO DO TIPO DO PRODUTO");
 
 			
-		
-		
-		
+
+	        btnCadastroCadastrarTipoProduto.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	                // Cria uma instância da tela inicial (classe ED) e a torna visível
+	            
+	            	JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
+	            }
+	        });	
+	       		
 	
 
-        btnVoltar.addActionListener(new ActionListener() {
+        btnVoltarCadastroTipoProduto.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Cria uma instância da tela inicial (classe ED) e a torna visível
             	TelaInicial telaInicial = new TelaInicial();
@@ -137,14 +147,9 @@ public class CadastraTipoDeProduto extends JFrame {
                 dispose();
             }
         });
+        
      }
 
-private JTextField createNumericTextField() {
-    JTextField textField = new JTextField();
-   
-    textField.setDocument(new NumericDocument());
-    return textField;
-}
 
 private class NumericDocument extends PlainDocument {
     @Override
@@ -160,15 +165,16 @@ public class AlphaNumericTextField extends JTextField {
         setDocument(new AlphaNumericDocument());
     }
 
-    
-	private class AlphaNumericDocument extends PlainDocument {
+    private class AlphaNumericDocument extends PlainDocument {
         @Override
         public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
-            // Verifica se a string contém apenas letras
-            if (str != null && str.matches("[a-zA-Z]+")) {
+            // Verifica se a string contém apenas letras ou espaços
+            if (str != null && str.matches("[a-zA-Z ]+")) {
                 super.insertString(offs, str, a);
             }
         }
     }
+
 }
+
 }

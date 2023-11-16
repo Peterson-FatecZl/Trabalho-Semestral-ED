@@ -25,7 +25,7 @@ import javax.swing.text.PlainDocument;
 import controller.ControleClientePF;
 import controller.ControleClientePJ;
 
-public class ConsultaCliente extends JFrame {
+public class ConsultaCliente extends BaseFrame{
 
 	private JPanel contentPane;
 	private JPanel contentPane_1;
@@ -98,6 +98,7 @@ public class ConsultaCliente extends JFrame {
 		        btnConsultarCliente.setToolTipText("CADASTRAR O CLIENTE POR CPF");
 		        btnConsultarCliente.setFont(new Font("Tahoma", Font.BOLD, 16));
 		        btnConsultarCliente.setBounds(550, 285, 114, 30);
+		        
 		        contentPane_1.add(btnConsultarCliente);
 		        
 		        textFieldCpf =   createNumericTextField();

@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import java.awt.Color;
 
-public class ClienteCPFouCNPJ extends JFrame {
+public class ClienteCPFouCNPJ extends BaseFrame {
 
 	private JPanel contentPane;
 

@@ -15,11 +15,13 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import java.awt.SystemColor;
 
-public class TelaInicial extends JFrame {
+public class TelaInicial extends BaseFrame {
 
 	private JPanel contentPane;
-
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -52,7 +54,7 @@ public class TelaInicial extends JFrame {
 		contentPane.setLayout(null);
 
 		JPanel panelCliente = new JPanel();
-		panelCliente.setBackground(new Color(128, 128, 128));
+		panelCliente.setBackground(new Color(181, 181, 181));
 		panelCliente.setForeground(UIManager.getColor("Button.darkShadow"));
 		panelCliente.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panelCliente.setBounds(10, 60, 199, 235);
@@ -77,16 +79,12 @@ public class TelaInicial extends JFrame {
 		btnClienteExcluir.setToolTipText("EXCLUSAO DE CLIENTES");
 		btnClienteExcluir.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnClienteExcluir.setBackground(new Color(255, 255, 255));
-		btnClienteExcluir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnClienteExcluir.setBounds(20, 158, 165, 23);
 		panelCliente.add(btnClienteExcluir);
 
 		JLabel lblCliente = new JLabel("CLIENTE");
-		lblCliente.setToolTipText("CLASSE CLIENTE");
 		lblCliente.setFont(new Font("Tahoma", Font.BOLD, 22));
+		lblCliente.setToolTipText("CLASSE CLIENTE");
 		lblCliente.setBounds(46, 34, 139, 27);
 		panelCliente.add(lblCliente);
 		
@@ -99,7 +97,7 @@ public class TelaInicial extends JFrame {
 
 		JPanel panelProduto = new JPanel();
 		panelProduto.setForeground(new Color(255, 255, 255));
-		panelProduto.setBackground(new Color(128, 128, 128));
+		panelProduto.setBackground(new Color(181, 181, 181));
 		panelProduto.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panelProduto.setBounds(219, 60, 207, 235);
 		contentPane.add(panelProduto);
@@ -133,7 +131,7 @@ public class TelaInicial extends JFrame {
 		panelProduto.add(lblProduto);
 
 		JPanel panelTipoProduto = new JPanel();
-		panelTipoProduto.setBackground(new Color(128, 128, 128));
+		panelTipoProduto.setBackground(new Color(181, 181, 181));
 		panelTipoProduto.setBorder(new LineBorder(new Color(255, 255, 255)));
 		panelTipoProduto.setBounds(436, 60, 207, 235);
 		contentPane.add(panelTipoProduto);
@@ -183,8 +181,8 @@ public class TelaInicial extends JFrame {
 						// ActionListener para o botão COMPRA
 						btnCarrinho.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
-								CompraClienteFrame CompraCliente = new CompraClienteFrame(TelaInicial.this, true);
-								CompraCliente.setVisible(true);
+								//CompraClienteFrame CompraCliente = new CompraClienteFrame(TelaInicial.this, true);
+								//CompraCliente.setVisible(true);
 							}
 						});
 						
@@ -244,8 +242,13 @@ public class TelaInicial extends JFrame {
 				// ActionListener para o botão CONSULTA do TIPO DO PRODUTO
 		btnTipoProdutoConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ConsultaTipoProdutoFrame consultaTipoProduto = new ConsultaTipoProdutoFrame(TelaInicial.this, true);
-				consultaTipoProduto.setVisible(true);
+				TipoProdutoEspecificoouTodos TipoProdutoEspecificoouTodosjFrame = new TipoProdutoEspecificoouTodos();
+				TipoProdutoEspecificoouTodosjFrame.setVisible(true);
+                
+
+                // Fecha o frame atual, se necessário
+                 setVisible(false);
+                 dispose();
 			}
 		});
 
@@ -291,70 +294,5 @@ public class TelaInicial extends JFrame {
 	
 	
 
-	class ConsultaTipoProdutoFrame extends JDialog {
-		public ConsultaTipoProdutoFrame(JFrame parent, boolean modal) {
-			super(parent, "Consulta de Tipo de Produto", modal);
-			setBounds(100, 100, 690, 360);
-			contentPane = new JPanel();
-			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			setLocationRelativeTo(parent);
-		}
+	
 	}
-
-	class ExcluirTipoProdutoFrame extends JDialog {
-		public ExcluirTipoProdutoFrame(JFrame parent, boolean modal) {
-			super(parent, "Exclusao de Tipo de Produto", modal);
-			setBounds(100, 100, 690, 360);
-			contentPane = new JPanel();
-			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			setLocationRelativeTo(parent);
-		}
-	}
-
-	class CadastroProdutoFrame extends JDialog {
-		public CadastroProdutoFrame(JFrame parent, boolean modal) {
-			super(parent, "Cadastro de Produto", modal);
-			setBounds(100, 100, 690, 360);
-			contentPane = new JPanel();
-			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			setLocationRelativeTo(parent);
-		}
-	}
-
-	class ConsultaProdutoFrame extends JDialog {
-		public ConsultaProdutoFrame(JFrame parent, boolean modal) {
-			super(parent, "Consulta de Produto", modal);
-			setBounds(100, 100, 690, 360);
-			contentPane = new JPanel();
-			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			setLocationRelativeTo(parent);
-		}
-	}
-
-	class ExcluirProdutoFrame extends JDialog {
-		public ExcluirProdutoFrame(JFrame parent, boolean modal) {
-			super(parent, "Exclusao de Produto", modal);
-			setBounds(100, 100, 690, 360);
-			contentPane = new JPanel();
-			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			setLocationRelativeTo(parent);
-		}
-	}
-
-	class CompraClienteFrame extends JDialog {
-		public CompraClienteFrame(JFrame parent, boolean modal) {
-			super(parent, "Compras de Produto", modal);
-
-			setBounds(100, 100, 690, 360);
-			contentPane = new JPanel();
-			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			setLocationRelativeTo(parent);
-		}
-	}
-}
