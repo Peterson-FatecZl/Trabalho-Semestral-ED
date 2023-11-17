@@ -27,6 +27,7 @@ public class CadastroProduto extends BaseFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private JTextField textField_4;
 
 	/**
 	 * Launch the application.
@@ -122,13 +123,10 @@ public class CadastroProduto extends BaseFrame {
 		DefaultComboBoxModel<String> comboBoxModel = new DefaultComboBoxModel<>();
 		comboBoxModel.addElement("Bens de Consumo");
 		comboBoxModel.addElement("Produtos ao Consumidor");
-		JComboBox<String> comboBox = new JComboBox<>(comboBoxModel);
-		comboBox.setBounds(458, 237, 181, 22);
-		contentPane_1.add(comboBox);
 		
 		JLabel lblNewLabel_6 = new JLabel("TIPO DE PRODUTO");
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_6.setBounds(458, 206, 181, 20);
+		lblNewLabel_6.setBounds(458, 221, 181, 20);
 		contentPane_1.add(lblNewLabel_6);
 		
 		
@@ -145,6 +143,11 @@ public class CadastroProduto extends BaseFrame {
 	        btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 16));
 	        btnCadastrar.setBounds(550, 285, 110, 30);
 	        contentPane_1.add(btnCadastrar);
+	        
+	        textField_4 = new JTextField();
+	        textField_4.setBounds(458, 248, 170, 20);
+	        contentPane_1.add(textField_4);
+	        textField_4.setColumns(10);
 	
 	
 	
