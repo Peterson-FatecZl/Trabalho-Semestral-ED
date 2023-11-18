@@ -8,14 +8,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import java.awt.SystemColor;
+
+import controller.TipoProdutoController;
+import model.ListaEncadeada;
+import model_main.TipoProduto;
 
 public class TelaInicial extends BaseFrame {
 
@@ -28,7 +30,10 @@ public class TelaInicial extends BaseFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				ListaEncadeada<TipoProduto> listaTipoProduto = new ListaEncadeada<>();
 				try {
+					TipoProdutoController verificacaoBaseDados = new TipoProdutoController();
+					verificacaoBaseDados.verificarBaseDadosTipoProduto(listaTipoProduto);
 					TelaInicial frame = new TelaInicial();
 					frame.setVisible(true);
 					 frame.setResizable(false);
