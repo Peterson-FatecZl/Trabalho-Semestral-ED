@@ -12,7 +12,9 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
-
+import controller.TipoProdutoController;
+import model.ListaEncadeada;
+import model_main.TipoProduto;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -109,14 +111,13 @@ public class ConsultaTipoProdutoTodos extends BaseFrame {
 		textAreaResultadoConsultaTipoProdutoTodos.setBounds(243, 161, 308, 106);
 		contentPane.add(textAreaResultadoConsultaTipoProdutoTodos);
 
-	
+        ListaEncadeada<TipoProduto> listaTipoProduto = new ListaEncadeada<>();
+		TipoProdutoController methodsTipoProduto = new TipoProdutoController(textAreaResultadoConsultaTipoProdutoTodos, listaTipoProduto);
 	
 		btnConsultarTipoProdutoTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Consulta Realizado com Sucesso", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
-			
-		}
-			
+				methodsTipoProduto.actionPerformed(e);
+			}
 		});
 
 		btnVoltarTipoProdutoTodos.addActionListener(new ActionListener() {

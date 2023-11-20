@@ -13,6 +13,9 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
+import controller.TipoProdutoController;
+import model.ListaEncadeada;
+import model_main.TipoProduto;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -29,8 +32,6 @@ public class ConsultaTipoProdutoEspecifica extends BaseFrame {
 	private JPanel contentPane;
 	private JPanel contentPane_1;
 	private JTextField textField;
-	private JTextField textFieldCpf;
-	private JTextField textFieldCnpj;
 	private JTextField textFieldNomeTipoProdutoEspecifica;
 
 	/**
@@ -87,7 +88,7 @@ public class ConsultaTipoProdutoEspecifica extends BaseFrame {
 		textFieldNomeTipoProdutoEspecifica.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(266, 185, 286, 90);
+		scrollPane.setBounds(266, 185, 398, 90);
 		contentPane_1.add(scrollPane);
 		
 		JTextArea textAreaResultadoConsultaEspecifica = new JTextArea();
@@ -109,18 +110,24 @@ public class ConsultaTipoProdutoEspecifica extends BaseFrame {
 		btnVoltarTipoProdutoEspecifica.setBounds(430, 286, 110, 30);
 		contentPane_1.add(btnVoltarTipoProdutoEspecifica);
 
-		JButton btnConsultarTipoProdutoEspecifica = new JButton("Consultar");
+		JButton btnConsultarTipoProdutoEspecifica = new JButton("consultar");
 		btnConsultarTipoProdutoEspecifica.setToolTipText("CONSULTAR");
 		btnConsultarTipoProdutoEspecifica.setBackground(new Color(0, 204, 255));
 		btnConsultarTipoProdutoEspecifica.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnConsultarTipoProdutoEspecifica.setBounds(550, 286, 114, 30);
 		contentPane_1.add(btnConsultarTipoProdutoEspecifica);
-	
+		
+        ListaEncadeada<TipoProduto> listaTipoProduto = new ListaEncadeada<>();
+		TipoProdutoController methodsTipoProduto = new TipoProdutoController(textAreaResultadoConsultaEspecifica, textFieldNomeTipoProdutoEspecifica
+													, listaTipoProduto);
 
 		btnConsultarTipoProdutoEspecifica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Consulta Realizado com Sucesso", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
-				//dispose();
+				if(textFieldNomeTipoProdutoEspecifica.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Campo não preenchido", "Erro", JOptionPane.ERROR_MESSAGE);
+				} else {
+					methodsTipoProduto.actionPerformed(e);
+				}
 		}
 			
 		});

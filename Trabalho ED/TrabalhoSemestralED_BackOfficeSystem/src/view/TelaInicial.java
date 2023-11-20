@@ -30,13 +30,10 @@ public class TelaInicial extends BaseFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				ListaEncadeada<TipoProduto> listaTipoProduto = new ListaEncadeada<>();
 				try {
-					TipoProdutoController verificacaoBaseDados = new TipoProdutoController();
-					verificacaoBaseDados.verificarBaseDadosTipoProduto(listaTipoProduto);
 					TelaInicial frame = new TelaInicial();
 					frame.setVisible(true);
-					 frame.setResizable(false);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -22,7 +22,9 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
-
+import controller.TipoProdutoController;
+import model.ListaEncadeada;
+import model_main.TipoProduto;
 
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
@@ -30,11 +32,8 @@ import javax.swing.JScrollPane;
 public class CadastraTipoDeProduto extends BaseFrame {
 
 
-	private JPanel contentPane_1;
 	private JPanel contentPane_1_1;
 	
-	private JTextField textField;
-	private JTextField textField_2;
 	private JTextField textFieldEspecifiqueTipoProduto;
 
 	/**
@@ -61,7 +60,7 @@ public class CadastraTipoDeProduto extends BaseFrame {
 
 		getContentPane().setLayout(null);
 
-		contentPane_1 = new JPanel();
+		contentPane_1_1 = new JPanel();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 690, 360);
@@ -110,6 +109,7 @@ public class CadastraTipoDeProduto extends BaseFrame {
 	        btnCadastroCadastrarTipoProduto.setBounds(543, 285, 121, 30);
 	        contentPane_1_1.add(btnCadastroCadastrarTipoProduto);
 	        
+	        //New JTextField
 	        AlphaNumericTextField textFieldEspecifiqueTipoProduto = new AlphaNumericTextField();
 	        textFieldEspecifiqueTipoProduto.setToolTipText(" DIGITE A ESPECIFICAÇÃO DO TIPO DO PRODUTO ");
 	        textFieldEspecifiqueTipoProduto.setColumns(10);
@@ -125,13 +125,20 @@ public class CadastraTipoDeProduto extends BaseFrame {
 	        scrollPane.setViewportView(textAreaDescricaoTipoProduto);
 	        textAreaDescricaoTipoProduto.setToolTipText(" DIGITE A DESCRIÇÃO DO TIPO DO PRODUTO");
 
-			
+	        ListaEncadeada<TipoProduto> listaTipoProduto = new ListaEncadeada<>();
+	        TipoProdutoController methodsTipoProduto = new TipoProdutoController(textFieldEspecifiqueTipoProduto, textAreaDescricaoTipoProduto
+	        												, listaTipoProduto);
 
 	        btnCadastroCadastrarTipoProduto.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
-	                // Cria uma instância da tela inicial (classe ED) e a torna visível
-	            
-	            	JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
+	                if(textFieldEspecifiqueTipoProduto.getText().isEmpty() || textAreaDescricaoTipoProduto.getText().isEmpty()) {
+	                	JOptionPane.showMessageDialog(null, "Campos não preenchidos", "Erro", JOptionPane.ERROR_MESSAGE);
+	                } else {
+	                	methodsTipoProduto.actionPerformed(e);
+	                	//Limpar Campos
+	                    textFieldEspecifiqueTipoProduto.setText("");
+	                    textAreaDescricaoTipoProduto.setText("");
+	                }
 	            }
 	        });	
 	       		

@@ -18,6 +18,10 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
+import controller.TipoProdutoController;
+import model.ListaEncadeada;
+import model_main.TipoProduto;
+
 
 
 
@@ -92,14 +96,17 @@ public class ExcluiTipoDeProduto extends BaseFrame {
         btnExclusaoTipoProduto.setBounds(550, 285, 110, 30);
         contentPane.add(btnExclusaoTipoProduto);
         
+        ListaEncadeada<TipoProduto> listaTipoProduto = new ListaEncadeada<>();
+        TipoProdutoController methodsTipoProduto = new TipoProdutoController(textFieldExclusaoTipoProduto, listaTipoProduto);
         
         btnExclusaoTipoProduto.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Cria uma instância da tela inicial (classe ED) e a torna visível
-         	 
-            	JOptionPane.showMessageDialog(null, "Exclusão Realizada com Sucesso", "Sucesso!", JOptionPane.PLAIN_MESSAGE);
-                // Fecha o frame atual
-             
+            	if(textFieldExclusaoTipoProduto.getText().isEmpty()) {
+            		JOptionPane.showMessageDialog(null, "Campo não preenchido", "Erro", JOptionPane.ERROR_MESSAGE);
+            	} else {
+            		methodsTipoProduto.actionPerformed(e);
+            		textFieldExclusaoTipoProduto.setText("");
+            	}
             }
         });
 	        
