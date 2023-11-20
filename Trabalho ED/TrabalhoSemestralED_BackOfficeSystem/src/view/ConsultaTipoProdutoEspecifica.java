@@ -26,12 +26,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class ConsultaTipoProdutoEspecifica extends BaseFrame {
 
-	private JPanel contentPane;
+	
 	private JPanel contentPane_1;
-	private JTextField textField;
+
 	private JTextField textFieldNomeTipoProdutoEspecifica;
 
 	/**
@@ -57,7 +58,7 @@ public class ConsultaTipoProdutoEspecifica extends BaseFrame {
 	public ConsultaTipoProdutoEspecifica() {
 		getContentPane().setLayout(null);
 
-		contentPane = new JPanel();
+		contentPane_1 = new JPanel();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 690, 360);
@@ -88,11 +89,14 @@ public class ConsultaTipoProdutoEspecifica extends BaseFrame {
 		textFieldNomeTipoProdutoEspecifica.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setToolTipText("RESULTADO DA SUA CONSULTA");
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setBounds(266, 185, 398, 90);
 		contentPane_1.add(scrollPane);
 		
 		JTextArea textAreaResultadoConsultaEspecifica = new JTextArea();
-		textAreaResultadoConsultaEspecifica.setEnabled(false);
+		textAreaResultadoConsultaEspecifica.setEditable(false);
 		scrollPane.setViewportView(textAreaResultadoConsultaEspecifica);
 		textAreaResultadoConsultaEspecifica.setToolTipText("O RESULTADO DA CONSULTA SAIRA AQUI");
 		

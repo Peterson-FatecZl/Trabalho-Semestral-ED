@@ -26,6 +26,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class ConsultaTipoProdutoTodos extends BaseFrame {
 
@@ -62,17 +63,7 @@ public class ConsultaTipoProdutoTodos extends BaseFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNomeTipoProdutoTodos = new JLabel("NOME DO TIPO DO PRODUTO :");
-		lblNomeTipoProdutoTodos.setToolTipText("NOME DO TIPO DO PRODUTO ");
-		lblNomeTipoProdutoTodos.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNomeTipoProdutoTodos.setBounds(42, 88, 295, 35);
-		contentPane.add(lblNomeTipoProdutoTodos);
-		
-		AlphaNumericTextField textFieldTipoProdutoTodos = new AlphaNumericTextField();
-		textFieldTipoProdutoTodos.setToolTipText("DIGITE O NOME DO TIPO DO PRODUTO");
-		textFieldTipoProdutoTodos.setBounds(334, 96, 201, 25);
-		contentPane.add(textFieldTipoProdutoTodos);
-		textFieldTipoProdutoTodos.setColumns(10);
+	
 		
 		JLabel lblTipoProdutoTodos = new JLabel("CONSULTA DE TODOS OS PRODUTOS DE UM TIPO ");
 		lblTipoProdutoTodos.setToolTipText("CONSULTA DE TODOS OS PRODUTOS DE UM TIPO ");
@@ -83,13 +74,8 @@ public class ConsultaTipoProdutoTodos extends BaseFrame {
 		JLabel lblResultadoTipoProdutoTodos = new JLabel("OS PRODUTOS SÃO :");
 		lblResultadoTipoProdutoTodos.setToolTipText("OS PRODUTOS SÃO ");
 		lblResultadoTipoProdutoTodos.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblResultadoTipoProdutoTodos.setBounds(42, 161, 191, 25);
+		lblResultadoTipoProdutoTodos.setBounds(34, 92, 191, 25);
 		contentPane.add(lblResultadoTipoProdutoTodos);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setToolTipText("RESULTADO DA SUA CONSULTA DE TODOS OS PRODUTIOS DESTE TIPO");
-		scrollPane.setBounds(243, 161, 310, 108);
-		contentPane.add(scrollPane);
 		
 		JButton btnVoltarTipoProdutoTodos= new JButton("Voltar");
 		btnVoltarTipoProdutoTodos.setToolTipText("VOLTAR");
@@ -105,14 +91,23 @@ public class ConsultaTipoProdutoTodos extends BaseFrame {
 		btnConsultarTipoProdutoTodos.setBounds(550, 285, 114, 30);
 		contentPane.add(btnConsultarTipoProdutoTodos);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(228, 92, 436, 175);
+		contentPane.add(scrollPane);
+		
 		JTextArea textAreaResultadoConsultaTipoProdutoTodos = new JTextArea();
-		textAreaResultadoConsultaTipoProdutoTodos.setEnabled(false);
+		textAreaResultadoConsultaTipoProdutoTodos.setEditable(false);
+		textAreaResultadoConsultaTipoProdutoTodos.setFont(new Font("Arial", Font.BOLD, 14));
+		scrollPane.setViewportView(textAreaResultadoConsultaTipoProdutoTodos);
 		textAreaResultadoConsultaTipoProdutoTodos.setToolTipText("RESULTADO DA SUA CONSULTA DE TODOS OS PRODUTIOS DESTE TIPO");
-		textAreaResultadoConsultaTipoProdutoTodos.setBounds(243, 161, 308, 106);
-		contentPane.add(textAreaResultadoConsultaTipoProdutoTodos);
-
-        ListaEncadeada<TipoProduto> listaTipoProduto = new ListaEncadeada<>();
+		
+		ListaEncadeada<TipoProduto> listaTipoProduto = new ListaEncadeada<>();
+			
 		TipoProdutoController methodsTipoProduto = new TipoProdutoController(textAreaResultadoConsultaTipoProdutoTodos, listaTipoProduto);
+
+        
 	
 		btnConsultarTipoProdutoTodos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
