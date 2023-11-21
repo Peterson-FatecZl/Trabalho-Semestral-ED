@@ -71,7 +71,7 @@ public class ConsultaTipoProdutoEspecifica extends BaseFrame {
 		JLabel lblConsultaEspecifica = new JLabel("CONSULTA DE TIPO DE PRODUTO ESPECIFICA");
 		lblConsultaEspecifica.setToolTipText("CONSULTA DE TIPO DE PRODUTO ESPECIFICA");
 		lblConsultaEspecifica.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblConsultaEspecifica.setBounds(79, 26, 471, 25);
+		lblConsultaEspecifica.setBounds(99, 26, 471, 25);
 		contentPane_1.add(lblConsultaEspecifica);
 		
 		JLabel lblNomeTipoProdutoEspecifica = new JLabel("NOME DO TIPO DE PRODUTO :");
