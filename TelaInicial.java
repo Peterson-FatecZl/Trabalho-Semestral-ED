@@ -49,7 +49,7 @@ public class TelaInicial extends BaseFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 690, 360);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 0, 0));
+		contentPane.setBackground(new Color(0,0,0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -174,7 +174,7 @@ public class TelaInicial extends BaseFrame {
 		contentPane.add(lblTelaInicial);
 		
 				JButton btnCarrinho = new JButton("CARRINHO");
-				btnCarrinho.setBounds(529, 19, 114, 23);
+				btnCarrinho.setBounds(520, 19, 123, 23);
 				contentPane.add(btnCarrinho);
 				btnCarrinho.setToolTipText("CARRINHO");
 				btnCarrinho.setFont(new Font("Tahoma", Font.BOLD, 14));
